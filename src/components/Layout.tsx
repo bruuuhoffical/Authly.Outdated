@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import logo from '../assets/logo/authly-nobg.png';
+import '../pages/style/Navbar.css';
 
 const rotatingTexts = [
   'Secure your desktop apps effortlessly',
@@ -31,7 +32,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     });
   }, [location.pathname]);
 
-  // ✅ Rotate text every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setTextIndex((prev) => (prev + 1) % rotatingTexts.length);
