@@ -221,7 +221,7 @@ input:checked + .slider:before {
 }
 
 /* MOBILE FIX */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
