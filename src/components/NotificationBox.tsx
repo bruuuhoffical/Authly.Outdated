@@ -33,7 +33,8 @@ const NotificationBox = ({
     <div
       className="notification-box"
       style={{
-        bottom: `${offset * 80 + 20}px`,
+        bottom: `${offset * 55 + 5}px`,
+        right: '20px',
       }}
     >
       <img src={logo} alt="logo" className="notification-logo" />

@@ -185,13 +185,16 @@ body[data-theme='dark'] {
   0% { opacity: 0; transform: translateY(6px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+ddd
+
 .notification-wrapper {
   position: fixed;
-  left: 20px;
+  right: 20px; /* ✅ bottom-right */
   bottom: 20px;
   z-index: 9999;
 }
 
+/* Notification Toast Box */
 .notification-box {
   background: #1e293b;
   border: 1px solid #0d2870;
@@ -201,49 +204,217 @@ body[data-theme='dark'] {
   gap: 0.75rem;
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  margin-bottom: 12px;
   min-width: 260px;
+  max-width: 300px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   position: absolute;
-  left: 0;
+  right: 0;         /* ✅ Align to right */
+  left: auto;
   animation: slideIn 0.3s ease;
 }
 
+/* Logo beside message */
 .notification-logo {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
+/* Message text */
 .notification-text {
   flex: 1;
   font-size: 0.9rem;
+  line-height: 1.4;
 }
 
+/* Dismiss button */
 .notification-close {
   background: none;
   border: none;
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
+  padding: 0;
+  margin-left: 0.5rem;
 }
 
+/* Progress bar at bottom */
 .notification-progress {
   height: 4px;
-  background: #00f9c0;
-  border-radius: 0 0 4px 4px;
+  background: #ffffff;
+  border-radius: 0 0 6px 6px;
   position: absolute;
   left: 0;
   bottom: 0;
   transition: width 0.05s linear;
 }
+.notification-box.success {
+  border-left: 4px solid white;
+}
 
+.notification-box.error {
+  border-left: 4px solid #ef4444;
+}
+
+.notification-box.info {
+  border-left: 4px solid white; 
+}
+
+/* Slide-in animation */
 @keyframes slideIn {
   from {
-    transform: translateX(-100%);
+    transform: translateX(120%);
     opacity: 0;
   }
   to {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+
+
+/* ========== GENERAL ========== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: #0c1222;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  margin-right: 0.5rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #00f9c0;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbar-center li a {
+  font-weight: 500;
+  color: #e2e8f0;
+  transition: color 0.3s;
+}
+
+.navbar-center li a:hover {
+  color: #00f9c0;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn.primary {
+  background: #00f9c0;
+  color: #0f172a;
+}
+
+.btn.primary:hover {
+  background: #00dcb3;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid #00f9c0;
+  color: #00f9c0;
+}
+
+.btn.outline:hover {
+  background: #00f9c0;
+  color: #0f172a;
+}
+
+/* ========== HERO ========== */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(to right, #0d2870, #141f3d);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+}
+
+/* ========== SECTIONS ========== */
+.section {
+  padding: 5rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section:nth-child(even) {
+  background: #121c35;
+}
+
+.section h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00f9c0;
+}
+
+.section p {
+  font-size: 1.05rem;
+  color: #e2e8f0;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #0c1222;
+  font-size: 0.9rem;
+  color: #94a3b8;
 }
