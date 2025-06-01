@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaUsers, FaBook, FaDollarSign, FaGavel } from 'react-icons/fa';
 import './style/Home.css';
 
