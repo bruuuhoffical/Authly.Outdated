@@ -2,12 +2,10 @@ import { useEffect, useState } from 'react';
 import logo from '../assets/logo/authly-nobg.png';
 
 const NotificationBox = ({
-  id,
   message,
   onClose,
   offset,
 }: {
-  id: number;
   message: string;
   onClose: () => void;
   offset: number;

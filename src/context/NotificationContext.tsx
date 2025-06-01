@@ -40,7 +40,6 @@ export const NotificationProvider = ({ children }: { children: ReactNode }) => {
         {notifications.map((n, index) => (
           <NotificationBox
             key={n.id}
-            id={n.id}
             message={n.message}
             onClose={() => remove(n.id)}
             offset={index}
