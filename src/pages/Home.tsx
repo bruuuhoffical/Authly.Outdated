@@ -1,13 +1,9 @@
-import { useState } from 'react';
-import { FaUsers, FaBook, FaDollarSign, FaGavel } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaUsers, FaBook, FaDollarSign, FaGavel } from "react-icons/fa";
 import './style/Home.css';
 
 const Home = () => {
   const [annual, setAnnual] = useState(true);
-
-  const togglePlan = () => {
-    setAnnual(prev => !prev);
-  };
 
   return (
     <div data-theme="dark">
@@ -33,15 +29,16 @@ const Home = () => {
       <section className="hero">
         <div className="container hero-content">
           <div className="hero-text">
-            <h2>Effortless, Next-Level Authentication</h2>
-            <p>Get up and running fast with cloud-native subscriptions, granular access controls and automated workflows—all driven by a single API.</p>
-            <div className="hero-buttons">
-              <a href="/register" className="btn primary">Get Started</a>
-              <a href="/dashboard" className="btn outline">Client Panel</a>
-            </div>
+            <h2>Welcome to Authly</h2>
+            <p>
+              Effortless authentication, licensing, and user management for your SaaS, desktop, or web app.
+              <br />
+              <strong>Secure, scalable, and easy to integrate.</strong>
+            </p>
+            <a href="/register" className="btn primary">Start Free</a>
           </div>
-          <div className="hero-image">
-            <img src="/assets/dashboard-preview.png" alt="Preview" />
+          <div className="hero-image showcase">
+            <img src="/assets/dashboard-preview.png" alt="Authly Dashboard Preview" />
           </div>
         </div>
       </section>
@@ -62,53 +59,94 @@ const Home = () => {
 
       {/* PRICING */}
       <section className="section" id="pricing">
-        <div className="container">
-          <h3>Pricing Options</h3>
-          <p>All plans start with free usage. Upgrade anytime.</p>
-          <div className="pricing-toggle">
-            <label className="switch">
-              <input type="checkbox" onChange={togglePlan} checked={annual} />
-              <span className="slider"></span>
-            </label>
-            <span className="switch-label">Annual Pricing (save 50%)</span>
+        <div className="container pricing-header">
+          <h3>Plan</h3>
+          <div className="toggle-group">
+            <span
+              className={annual ? "active" : ""}
+              onClick={() => setAnnual(true)}
+            >
+              Annual
+            </span>
+            <span
+              className={!annual ? "active" : ""}
+              onClick={() => setAnnual(false)}
+            >
+              Monthly
+            </span>
+          </div>
+        </div>
+
+        <div className="container pricing-cards">
+          <div className="pricing-card glassy">
+            <h4>Starter</h4>
+            <div className="plan-desc">For small projects and testing</div>
+            <h2>$0 <span>/mo</span></h2>
+            <ul>
+              <li><span className="check-icon" />Up to 50 users</li>
+              <li><span className="check-icon" />Basic API access</li>
+              <li><span className="check-icon" />Community support</li>
+            </ul>
+            <a href="/register" className="btn outline">Get Started</a>
           </div>
 
-          <div className="pricing-cards">
-            <div className="pricing-card">
-              <h4>Free</h4>
-              <p className="price">{annual ? '$0 / year' : '$0 / month'}</p>
-              <ul>
-                <li>✅ 2 Apps</li>
-                <li>✅ 25 Users / Keys</li>
-                <li>✅ 15 Cloud Vars</li>
-                <li>🚫 No custom logic</li>
-              </ul>
-              <button className="btn primary">Start for Free</button>
-            </div>
+          <div className="pricing-card glassy popular">
+            <p className="plan-type">Premium</p>
+            {/* <span className="badge">POPULAR</span> */}
+            <p className="plan-desc">As you scale your tools</p>
+            <h2>${annual ? '12' : '1.50'} <span>/ {annual ? 'year' : 'month'}</span></h2>
+            <button className="btn primary">Get Developer</button>
+            <ul>
+              <li><span className="check-icon"></span><strong>20 Apps</strong></li>
+              <li><span className="check-icon"></span><strong>300 Keys</strong></li>
+              <li><span className="check-icon"></span><strong>100 Cloud Vars</strong></li>
+              <li><span className="check-icon"></span><strong>Discord / Telegram Control</strong></li>
+              <li><span className="check-icon"></span><strong>Priority updates</strong></li>
+            </ul>
+          </div>
 
-            <div className="pricing-card">
-              <h4>Developer</h4>
-              <p className="price">{annual ? '$12 / year' : '$1.50 / month'}</p>
-              <ul>
-                <li>✅ 20 Apps</li>
-                <li>✅ 300 Users / Keys</li>
-                <li>✅ 100 Cloud Vars</li>
-                <li>✅ Priority updates</li>
-              </ul>
-              <button className="btn outline">Purchase</button>
-            </div>
+          <div className="pricing-card glassy popular">
+            <p className="plan-type">Developer</p>
+            <span className="badge">POPULAR</span>
+            <p className="plan-desc">As you scale your tools</p>
+            <h2>${annual ? '30' : '5'} <span>/ {annual ? 'year' : 'month'}</span></h2>
+            <button className="btn primary">Get Developer</button>
+            <ul>
+              <li><span className="check-icon"></span><strong>50 Apps</strong></li>
+              <li><span className="check-icon"></span><strong>600 Keys</strong></li>
+              <li><span className="check-icon"></span><strong>200 Cloud Vars</strong></li>
+              <li><span className="check-icon"></span><strong>Priority updates</strong></li>
+              <li><span className="check-icon"></span><strong>Discord / Telegram Control</strong></li>
+            </ul>
+          </div>
 
-            <div className="pricing-card">
-              <h4>Enterprise</h4>
-              <p className="price">{annual ? 'Custom / One-time' : 'Custom'}</p>
-              <ul>
-                <li>✅ Unlimited Everything</li>
-                <li>✅ Full Source Code</li>
-                <li>✅ Custom API Logic</li>
-                <li>✅ Discord + Email Support</li>
-              </ul>
-              <button className="btn outline">Contact Us</button>
-            </div>
+          <div className="pricing-card glassy popular">
+            <p className="plan-type">Developer</p>
+            {/* <span className="badge">POPULAR</span> */}
+            <p className="plan-desc">As you scale your tools</p>
+            <h2>${annual ? '50' : '10'} <span>/ {annual ? 'year' : 'month'}</span></h2>
+            <button className="btn primary">Get Developer</button>
+            <ul>
+              <li><span className="check-icon"></span><strong>Maximum Apps</strong></li>
+              <li><span className="check-icon"></span><strong>Maximum Keys</strong></li>
+              <li><span className="check-icon"></span><strong>Maximum Cloud Vars</strong></li>
+              <li><span className="check-icon"></span><strong>Priority updates</strong></li>
+              <li><span className="check-icon"></span><strong>Discord / Telegram Control</strong></li>
+              <li><span className="check-icon"></span><strong>Customer Support</strong></li>
+              <li><span className="check-icon"></span><strong>Discord + Email Support</strong></li>
+              <li><span className="check-icon"></span><strong>Custom Database</strong></li>
+            </ul>
+          </div>
+
+          <div className="pricing-card glassy">
+            <p className="plan-type">Enterprise</p>
+            <p className="plan-desc">For serious infrastructure</p>
+            <h2>Custom <span>/ one-time</span></h2>
+            <button className="btn outlined">Contact Us</button>
+            <ul>
+              <li><span className="check-icon"></span><strong>Custom Hosting</strong></li>
+              <li><span className="check-icon"></span><strong>Full Source Code</strong></li>
+            </ul>
           </div>
         </div>
       </section>
@@ -117,29 +155,18 @@ const Home = () => {
       <footer className="footer">
         <div className="footer-grid">
           <div>
-            <h4>Authly</h4>
-            <p>Authly is a developer-first platform for modern licensing, login and updates.</p>
+            <h4>Product</h4>
+            <a href="#docs">Docs</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#team">Team</a>
           </div>
           <div>
-            <h5>Links</h5>
-            <a href="#">Docs</a>
-            <a href="#">GitHub</a>
-            <a href="#">Discord</a>
-          </div>
-          <div>
-            <h5>Support</h5>
-            <a href="#">Contact</a>
-            <a href="#">Demo Accounts</a>
-            <a href="#">Telegram</a>
-          </div>
-          <div>
-            <h5>Legal</h5>
-            <a href="#">Terms</a>
-            <a href="#">Privacy</a>
-            <a href="#">Licensing</a>
+            <h4>Legal</h4>
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy</a>
           </div>
         </div>
-        <p className="copyright">© {new Date().getFullYear()} Authly. All rights reserved.</p>
+        <p className="copyright">© Authly. All rights reserved.</p>
       </footer>
     </div>
   );
