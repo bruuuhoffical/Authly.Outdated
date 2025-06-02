@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaUsers, FaBook, FaDollarSign, FaGavel } from "react-icons/fa";
 import './style/Home.css';
 
@@ -31,7 +31,7 @@ const Home = () => {
           <div className="hero-text">
             <h2>Welcome to Authly</h2>
             <p>
-              Effortless authentication, licensing, and user management for your SaaS, desktop, or web app.
+              Effortless authentication, licensing, and user management for your SaaS, desktop, or web app
               <br />
               <strong>Secure, scalable, and easy to integrate.</strong>
             </p>
